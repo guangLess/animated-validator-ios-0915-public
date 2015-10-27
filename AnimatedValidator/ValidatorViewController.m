@@ -92,7 +92,7 @@
 
 - (IBAction)passwordTextEnd:(UITextField *)sender {
     
-    if (sender.text.intValue == 0 || (sender.text.length !=6)) {
+    if (sender.text.intValue == 0 || (sender.text.length !=6) || sender.text.length == 0) {
         NSLog(@" Not valid input");
         [UIView animateWithDuration:1 delay:0 options:0 animations:^{
             self.passwordTextField.backgroundColor = [UIColor redColor];
@@ -119,25 +119,19 @@
 
 #pragma mark - Submit Button Methods
 
-- (IBAction)submitMoveUp:(id)sender{
-    
-    [UIView animateWithDuration:1 delay:0 options:0 animations:^{
-        self.submitButtonBottomCons.constant += 30;
-        [self.view layoutIfNeeded];
-    } completion:nil];
-    
-}
+//- (IBAction)submitMoveUp:(id)sender{
+//    
+//    [UIView animateWithDuration:1 delay:0 options:0 animations:^{
+//        self.submitButtonBottomCons.constant += 30;
+//        [self.view layoutIfNeeded];
+//    } completion:nil];
+//    
+//}
 
 -(void)submitAction{
     
     self.submitButton.isEnabled == NO;
     self.submitButton.hidden = NO;
-    
-    //    [UIView animateWithDuration:1 delay:0 options:0 animations:^{
-    //        self.submitButtonBottomCons.constant += 30;
-    //        [self.view layoutIfNeeded];
-    //    } completion:nil];
-    
 }
 
 #pragma mark - UITextFieldDelegate
@@ -171,7 +165,13 @@
 #pragma mark - Editing Changed IBAction
 - (IBAction)email:(id)sender {
 }
-- (IBAction)submitButtonChanged:(id)sender {
+-(IBAction)submitButtonChanged:(id)sender{
+    
+    [UIView animateWithDuration:1 delay:0 options:0 animations:^{
+        self.submitButtonBottomCons.constant += 30;
+        [self.view layoutIfNeeded];
+    } completion:nil];
+    
 }
 - (IBAction)confirmEmail:(id)sender {
 }
